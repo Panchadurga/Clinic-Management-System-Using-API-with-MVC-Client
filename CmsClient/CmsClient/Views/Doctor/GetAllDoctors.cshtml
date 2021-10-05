@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CmsClient.Models.Doctor>
+
+@{
+    ViewData["Title"] = "GetAllDoctors";
+}
+@Html.Partial("_Navbarmenu")
+<p>
+    <a asp-action="Create"><h1>Add Doctor</h1></a>
+</p>
+<h4>List of Doctors</h4>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VisitingHour)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialization)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VisitingHour)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Edit", new { id = item.DoctorId }) |
+                    @Html.ActionLink("Remove Doctor", "Delete", new { id = item.DoctorId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

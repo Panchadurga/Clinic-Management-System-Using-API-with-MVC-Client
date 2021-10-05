@@ -1,0 +1,27 @@
+﻿@*Navigation bar for Dashboard Pages*@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <div class="logo-image">
+                    <img src="~/lib/images/Stone-Clinic-Logo.jpg" style="height:50px; width:50px" />
+                </div>
+            </a>
+            <b>The Stone Clinic</b>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-end">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Dashboard" asp-action="Index"><p style="color:deepskyblue"><b>Go to Home</b></p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login"><p style="color:deepskyblue"><b>Logout</b></p></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

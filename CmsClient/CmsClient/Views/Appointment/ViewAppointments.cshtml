@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CmsClient.Models.Schedule>
+
+@{
+    ViewData["Title"] = "ViewAppointments";
+}
+@Html.Partial("_Navbarmenu")
+<p>
+    <a asp-action="Choosedoctor" asp-controller="ChooseDoctor"><h2>Add Appointment</h2></a>
+</p>
+<h4>ViewAppointments</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VisitDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialization)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VisitDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentTime)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Edit", new { id = item.AppointmentId }) 
+                    @*@Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

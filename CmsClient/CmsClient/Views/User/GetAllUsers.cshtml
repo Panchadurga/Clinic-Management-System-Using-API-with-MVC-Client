@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CmsClient.Models.UserSetup>
+
+@{
+    ViewData["Title"] = "GetAllUsers";
+}
+
+<h1>GetAllUsers</h1>
+
+<p>
+    <a asp-action="Create">New User</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.ActionLink("Reset", "Edit", new { username = item.Username  }) |
+                @Html.ActionLink("Delete User", "Delete", new { username = item.Username})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

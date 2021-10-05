@@ -1,0 +1,63 @@
+﻿@model CmsClient.Models.Login
+
+@{
+    ViewData["Title"] = "Login";
+}
+@*Logo Image*@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <div class="logo-image">
+                <img src="~/lib/images/Stone-Clinic-Logo.jpg" style="height:50px; width:50px" />
+            </div>
+        </a>
+        <h1><b><i>The Stone Clinic</i></b></h1>
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Create"><p style="color:black"><h3><b>Register</b></h3></p></a>
+
+        @*<img src="../images/Stone-Clinic-Logo.jpg" class="img-center" height="50" width="50" />*@
+
+    </div>
+</nav>
+<center>
+    <h3>Login Form</h3>
+</center>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Username" class="control-label"></label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" type="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                    </div>
+                    @*for popup message*@
+                    @if (@ViewBag.errormsg != null)
+                    {
+                <script type="text/javascript">
+
+                                window.onload = function ()
+                                {
+                                     alert("@ViewBag.errormsg");
+                                };
+                </script>}
+                </form>
+            </div>
+        </div>
+    @*<div>
+          <a asp-action="Index">Back to List</a>
+      </div>*@
+@section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

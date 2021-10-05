@@ -1,0 +1,71 @@
+﻿@model CmsClient.Models.Doctor
+
+@{
+    ViewData["Title"] = "Create";
+}
+@Html.Partial("_Navbarmenu")
+@*<h1>Create</h1>*@
+
+<h4>Add Doctor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="DoctorId" class="control-label"></label>
+            <input asp-for="DoctorId" class="form-control" />
+            <span asp-validation-for="DoctorId" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Sex" class="control-label"></label>
+            <input asp-for="Sex" class="form-control" />*@
+                <label asp-for="Sex" class="control-label"></label>
+                <select asp-for="Sex" class="form-control">
+                    <option>M</option>
+                    <option>F</option>
+                    <option>Others</option>
+                </select>
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialization" class="control-label"></label>
+                <select asp-for="Specialization" class="form-control">
+                    <option>General</option>
+                    <option>Internal Medicine</option>
+                    <option>Pediatrics</option>
+                    <option>Orthopedics</option>
+                    <option>Ophthalmology</option>
+                </select>
+                <span asp-validation-for="Specialization" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitingHour" class="control-label"></label>
+                <input asp-for="VisitingHour" class="form-control" placeholder="HH:MM(AM/PM) - HH:MM(AM/PM)"/>
+                <span asp-validation-for="VisitingHour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Doctor" class="btn btn-primary" />
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="GetAllDoctors">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
