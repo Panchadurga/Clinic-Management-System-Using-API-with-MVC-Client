@@ -22,8 +22,18 @@ namespace CmsClient.Models
         [Required]
         public string Specialization { get; set; }
 
+        [Display(Name = "From")]
+        //[DisplayFormat(DataFormatString = "{HH:MM}")]
+        //[DataType(DataType.Time)]
         [Required]
-        public string VisitingHour { get; set; }
+        public string StartTime { get; set; }
+
+        [Display(Name = "To")]
+        //[DisplayFormat(DataFormatString = "{HH:MM}")]
+        //[DataType(DataType.Time)]
+        [Required]
+       
+        public string EndTime { get; set; }
 
 
     }

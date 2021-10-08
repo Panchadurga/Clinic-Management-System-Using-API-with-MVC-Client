@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rr+LCDQoaUzoy8zxEiFwF2Kp6iCHoa3RfYM5APuLr5Py6hiMO8Vgmeo/ofej+x/HUoMEQgud7Hm2IVJnzNxCNg==",
+  "dgSpecHash": "n/5hBgl+qn9G0+0pZp2SdQ7O/V0jejyyfFcb3KycFm/GjhWDJtGhPo2tJrwsDqqaMTuch/WTZRGh6ZVLy7x6dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj",
+  "projectFilePath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DURGA-1\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\DURGA-1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -28,7 +28,10 @@
                 @Html.DisplayNameFor(model => model.Specialization)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VisitingHour)
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
             </th>
             <th></th>
         </tr>
@@ -36,30 +39,33 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DoctorId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Firstname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Lastname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sex)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Specialization)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VisitingHour)
-                </td>
-                <td>
-                    @Html.ActionLink("Update", "Edit", new { id = item.DoctorId }) |
-                    @Html.ActionLink("Remove Doctor", "Delete", new { id = item.DoctorId })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.DoctorId }) |
+                @Html.ActionLink("Remove Doctor", "Delete", new { id = item.DoctorId })
+            </td>
+        </tr>
         }
     </tbody>
 </table>

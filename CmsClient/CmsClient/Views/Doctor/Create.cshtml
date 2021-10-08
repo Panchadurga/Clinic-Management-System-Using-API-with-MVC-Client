@@ -50,14 +50,19 @@
                 <span asp-validation-for="Specialization" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VisitingHour" class="control-label"></label>
-                <input asp-for="VisitingHour" class="form-control" placeholder="HH:MM(AM/PM) - HH:MM(AM/PM)"/>
-                <span asp-validation-for="VisitingHour" class="text-danger"></span>
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input asp-for="EndTime" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Add Doctor" class="btn btn-primary" />
             </div>
-            
+
         </form>
     </div>
 </div>

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj": {}
+    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj": {
+    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj",
-        "projectName": "CmsClient",
-        "projectPath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj",
+        "projectUniqueName": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj",
+        "projectName": "CMSClient",
+        "projectPath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj",
         "packagesPath": "C:\\Users\\DURGA-1\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\obj\\",
         "projectStyle": "PackageReference",

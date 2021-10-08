@@ -55,8 +55,7 @@
                     @Html.DisplayFor(modelItem => item.AppointmentTime)
                 </td>
                 <td>
-                    @Html.ActionLink("Update", "Edit", new { id = item.AppointmentId }) 
-                    @*@Html.ActionLink("Cancel", "Delete", new { id = item.AppointmentId })*@
+                    @Html.ActionLink("Cancel Appointment", "Delete", new { id = item.AppointmentId })
                 </td>
             </tr>
         }

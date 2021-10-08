@@ -14,11 +14,11 @@ namespace CmsClient.Controllers
 {
     public class DoctorController : Controller
     {
-        //private readonly INotyfService _notyf;
-        //public DoctorController(INotyfService notyf)
-        //{
-        //    _notyf = notyf;
-        //}
+        private readonly INotyfService _notyf;
+        public DoctorController(INotyfService notyf)
+        {
+            _notyf = notyf;
+        }
         string Baseurl = "https://localhost:44305/";
 
         //Get all the List of doctors
@@ -66,7 +66,7 @@ namespace CmsClient.Controllers
                     Dobj = JsonConvert.DeserializeObject<Doctor>(apiResponse);
                 }
             }
-            //_notyf.Success("Successfully Added.", 3);
+            _notyf.Success("Successfully Added.", 3);
             return RedirectToAction("GetAllDoctors");
         }
         //Edit the details of the doctor
@@ -99,7 +99,7 @@ namespace CmsClient.Controllers
                     d1 = JsonConvert.DeserializeObject<Doctor>(apiResponse);
                 }
             }
-            //_notyf.Success("Successfully Updated.", 3);
+            _notyf.Success("Successfully Updated.", 3);
             return RedirectToAction("GetAllDoctors");
         }
 
@@ -132,7 +132,7 @@ namespace CmsClient.Controllers
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }
             }
-            //_notyf.Success("Successfully Deleted.", 3);
+            _notyf.Success("Successfully Deleted.", 3);
             return RedirectToAction("GetAllDoctors");
         }
     }

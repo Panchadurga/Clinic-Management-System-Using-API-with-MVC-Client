@@ -87,5 +87,27 @@ namespace CMS.Controllers
             _prod.DeleteDoctor(id);
             return NoContent();
         }
+        [Route("[action]/{dname}")]
+        [HttpGet]
+        public int DoctorIDByDoctorName(string dname)
+        {
+            return _prod.DoctorIDByDoctorName(dname);
+        }
+
+
+        [Route("[action]/{did}")]
+        [HttpGet]
+        public ActionResult<List<int>> VisitinghourList(int did)
+        {
+            return _prod.VisitinghourList(did);
+
+        }
+        [Route("[action]/{name}/{visitdate}")]
+        [HttpGet]
+        public ActionResult<List<int>> BookedAppointment(string name,DateTime visitdate)
+        {
+            return _prod.BookedAppointment(name, visitdate);
+
+        }
     }
 }

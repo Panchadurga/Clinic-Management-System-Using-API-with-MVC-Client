@@ -23,12 +23,20 @@ namespace CMS.Models
         [Required]
         public string Specialization { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{HH:MM}")]
-        //[DataType(DataType.Time)]
-        [Required]
-        public string VisitingHour{ get; set; }
+        [DisplayFormat(DataFormatString = "{HH:MM}")]
+        [DataType(DataType.Time)]
+        [Display(Name="From")]
         
-               
+        [Required]
+        public String StartTime { get; set; }
+        [DisplayFormat(DataFormatString = "{HH:MM}")]
+        [DataType(DataType.Time)]
+        [Display(Name="To")]
+        [Required]
+        
+        public string EndTime { get; set; }
+
+
 
     }
 }

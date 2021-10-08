@@ -48,5 +48,19 @@ namespace CMS.Provider
             return _repo.DoctorExists(id);
 
         }
+        public int DoctorIDByDoctorName(string name)
+        {
+            return _repo.DoctorIDByDoctorName(name);
+        }
+
+        public List<int> VisitinghourList(int id)
+        {
+            return _repo.VisitinghourList(id);
+        }
+
+        public List<int> BookedAppointment(string name, DateTime visitdate)
+        {
+            return _repo.BookedAppointment(name, visitdate);
+        }
     }
 }

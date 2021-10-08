@@ -12,11 +12,17 @@ using System.Threading.Tasks;
 using CMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace CmsClient.Controllers
 {
     public class AppointmentController : Controller
     {
+        private readonly INotyfService _notyf;
+        public AppointmentController(INotyfService notyf)
+        {
+            _notyf = notyf;
+        }
         string Baseurl = "https://localhost:44305/";
         //Get all the Appointments
         public async Task<IActionResult> ViewAppointments()
@@ -98,6 +104,8 @@ namespace CmsClient.Controllers
                                  where a.Specialization == d
                                  select a);
             ViewBag.availablelist = availablelist;
+
+           
             
             return View();
 
@@ -120,46 +128,95 @@ namespace CmsClient.Controllers
                     sobj = JsonConvert.DeserializeObject<Schedule>(apiResponse);
                 }
             }
-            
 
+            _notyf.Success("Appointment booked successfully.", 3);
             return RedirectToAction("ViewAppointments");
         }
         
-        //Edit an Appointment
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Timeslot(string Doctorname, string VisitDate)
         {
-            Schedule s = new Schedule();
-            using (var httpClient = new HttpClient())
+            DateTime visitdate = DateTime.Parse(VisitDate);
+            
+            int id = 0 ;
+            using (var client = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44305/api/Schedules/" + id))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    s = JsonConvert.DeserializeObject<Schedule>(apiResponse);
-                }
-            }
-            return View(s);
 
-        }
-        [HttpPost]
-        public async Task<IActionResult> Edit(Schedule s)
-        {
-            Schedule s1 = new Schedule();
-            using (var httpClient = new HttpClient())
+                client.BaseAddress = new Uri(Baseurl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage Res = await client.GetAsync("api/Doctors/DoctorIDByDoctorName/" + Doctorname);
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    var DoctorResponse = Res.Content.ReadAsStringAsync().Result;
+                    id = JsonConvert.DeserializeObject<int>(DoctorResponse);
+
+                }
+
+            }
+            //List of Doctor-Visiting Hours 
+            List<int> Doctoravailability = new List<int>();
+            using (var client = new HttpClient())
             {
-                int id = s.AppointmentId;
-                StringContent content1 = new StringContent(JsonConvert.SerializeObject(s), Encoding.UTF8, "application/json");
-                using (var response = await httpClient.PutAsync("https://localhost:44305/api/Schedules/" + id, content1))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    ViewBag.Result = "Success";
-                    s1 = JsonConvert.DeserializeObject<Schedule>(apiResponse);
-                }
-            }
-            return RedirectToAction("ViewAppointments");
-        }
 
-        //Delete an Appointment
+                client.BaseAddress = new Uri(Baseurl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage Res = await client.GetAsync("api/Doctors/VisitinghourList/" + id);
+
+                if (Res.IsSuccessStatusCode)
+                {
+                    var DoctorResponse = Res.Content.ReadAsStringAsync().Result;
+                    Doctoravailability = JsonConvert.DeserializeObject<List<int>>(DoctorResponse);
+
+                }
+                
+            }
+            //List of Booked Appointment Time
+            List<int> Appointment = new List<int>();
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri(Baseurl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage Res = await client.GetAsync("api/Doctors/BookedAppointment/" + Doctorname + "/" + VisitDate);
+                if (Res.IsSuccessStatusCode)
+                {
+                    var ScheduleResponse = Res.Content.ReadAsStringAsync().Result;
+                    Appointment = JsonConvert.DeserializeObject<List<int>>(ScheduleResponse);
+
+                }
+
+            }
+            //List of Available slots=[Doctoravailability - Appointment]
+            List<int> AvailableSlots = new List<int>();
+            int starttime = Doctoravailability[0];
+            int endtime = Doctoravailability[1];
+            for (int currenttime = starttime; currenttime <= endtime; currenttime++)
+            {
+                
+                bool allow = true; //initially set true
+                
+                foreach(int appointmenttime in Appointment)
+                {
+                    if(currenttime == appointmenttime)
+                    {
+                        allow = false;//slots are not available
+                        break;
+                    }
+                }
+                if(allow == true)//slots are available
+                {
+                    AvailableSlots.Add(currenttime);
+                }
+
+            }
+            ViewBag.res = AvailableSlots;
+            return PartialView("Timeslot");
+        }
+        
+        //Cancel an Appointment
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
@@ -188,7 +245,7 @@ namespace CmsClient.Controllers
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }
             }
-
+            _notyf.Success("Appointment Cancelled successfully.", 3);
             return RedirectToAction("ViewAppointments");
         }
     }

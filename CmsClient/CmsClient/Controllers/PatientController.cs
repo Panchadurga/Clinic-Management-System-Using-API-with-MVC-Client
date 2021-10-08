@@ -1,4 +1,5 @@
-﻿using CmsClient.Models;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using CmsClient.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -13,11 +14,11 @@ namespace CmsClient.Controllers
 {
     public class PatientController : Controller
     {
-        //private readonly INotyfService _notyf;
-        //public PatientController(INotyfService notyf)
-        //{
-        //    _notyf = notyf;
-        //}
+        private readonly INotyfService _notyf;
+        public PatientController(INotyfService notyf)
+        {
+            _notyf = notyf;
+        }
         string Baseurl = "https://localhost:44305/";
         //Get all the List of patients
         public async Task<IActionResult> GetAllPatients()
@@ -63,7 +64,7 @@ namespace CmsClient.Controllers
                     pobj = JsonConvert.DeserializeObject<Patient>(apiResponse);
                 }
             }
-            //_notyf.Success("Successfully Added.", 3);
+            _notyf.Success("Successfully Added.", 3);
             return RedirectToAction("GetAllPatients");
         }
         //Edit the details of the patient
@@ -96,7 +97,7 @@ namespace CmsClient.Controllers
                     p1 = JsonConvert.DeserializeObject<Patient>(apiResponse);
                 }
             }
-            //_notyf.Success("Successfully Updated.", 3);
+            _notyf.Success("Successfully Updated.", 3);
             return RedirectToAction("GetAllPatients");
         }
         //Delete a particular patient
@@ -128,7 +129,7 @@ namespace CmsClient.Controllers
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }
             }
-            //_notyf.Success("Successfully Deleted.", 3);
+            _notyf.Success("Successfully Deleted.", 3);
             return RedirectToAction("GetAllPatients");
         }
     }

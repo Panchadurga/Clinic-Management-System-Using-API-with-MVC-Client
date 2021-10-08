@@ -313,8 +313,6 @@ C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClien
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\scopedcss\bundle\CmsClient.styles.css
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\CmsClient.RazorCoreGenerate.cache
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Appointment\Create.cshtml.g.cs
-C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Appointment\Delete.cshtml.g.cs
-C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Appointment\Edit.cshtml.g.cs
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Appointment\ViewAppointments.cshtml.g.cs
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Doctor\Create.cshtml.g.cs
@@ -344,7 +342,9 @@ C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClien
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\CmsClient.csproj.CopyComplete
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\CmsClient.genruntimeconfig.cache
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\ChooseDoctor\Choosedoctor.cshtml.g.cs
-C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\CmsClient.csproj.AssemblyReference.cache
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\bin\Debug\net5.0\CmsClient.StaticWebAssets.xml
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\bin\Debug\net5.0\AspNetCoreHero.ToastNotification.Views.dll
 C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\bin\Debug\net5.0\AspNetCoreHero.ToastNotification.dll
+C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Shared\Timeslot.cshtml.g.cs
+C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\Razor\Views\Appointment\Delete.cshtml.g.cs
+C:\Users\DURGA-1\source\repos\Clinic-Management-System-master\CmsClient\CmsClient\obj\Debug\net5.0\CmsClient.csproj.AssemblyReference.cache

@@ -16,14 +16,16 @@
     <table border="1" cellpadding="2" cellspacing="2">
         <tr>
             <th>Doctor Name</th>
-            <th>Visiting Hour</th>
+            <th>Start time</th>
+            <th>End time</th>
         </tr>
         @foreach (var item in ViewBag.availablelist)
         {
-            <tr>
-                <td>@item.Firstname</td>
-                <td>@item.VisitingHour</td>
-            </tr>
+    <tr>
+        <td>@item.Firstname</td>
+        <td>@item.StartTime</td>
+        <td>@item.EndTime</td>
+    </tr>
          }
     </table>
 </div>
@@ -43,37 +45,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="DoctorName" class="control-label"></label>
-                <select asp-for="DoctorName" class="form-control" asp-items="@doclist"></select>
+                <select id="doctorname" asp-for="DoctorName" class="form-control" asp-items="@doclist"></select>
                 <span asp-validation-for="DoctorName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VisitDate" class="control-label"></label>
-                <input asp-for="VisitDate" class="form-control" />
+                <input id="visitdate" asp-for="VisitDate" class="form-control" />
                 <span asp-validation-for="VisitDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AppointmentTime" class="control-label"></label>
-                <select asp-for="AppointmentTime" multiple class="form-control">
-                    <option>08:00AM - 09:00AM</option>
-                    <option>09:00AM - 10:00AM</option>
-                    <option>10:00AM - 11:00AM</option>
-                    <option>11:00AM - 12:00PM</option>
-                    <option>01:00PM - 02:00PM</option>
-                    <option>02:00PM - 03:00PM</option>
-                    <option>03:00PM - 04:00PM</option>
-                    <option>04:00PM - 05:00PM</option>
-                    <option>05:00PM - 06:00PM</option>
-                    <option>06:00PM - 07:00PM</option>
-                    <option>07:00PM - 08:00PM</option>
-                    <option>08:00PM - 09:00PM</option>
-                    <option>09:00PM - 10:00PM</option>
-                </select>
+                <button class="btn btn-primary" type="button" id="btnShowAppointmentTime">Get Appointment Time</button>
+            </div>
+            <div class="form-group time">
                 <span asp-validation-for="AppointmentTime" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+           
         </form>
     </div>
 </div>
@@ -83,5 +70,21 @@
     </div>*@
 
 @section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("#btnShowAppointmentTime").click(function () {
+                var Doctorname = $("#doctorname").val();
+                var VisitDate = $("#visitdate").val();
+              
+
+
+
+                $(".time").load("/Appointment/Timeslot", { Doctorname: Doctorname, VisitDate: VisitDate});
+            })
+        });
+    </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }

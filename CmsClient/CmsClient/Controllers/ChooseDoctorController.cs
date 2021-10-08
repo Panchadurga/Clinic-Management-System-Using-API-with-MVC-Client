@@ -14,7 +14,7 @@ namespace CmsClient.Controllers
         {
             return View();
         }
-     
+
         [HttpPost]
         public IActionResult Choosedoctor(ChooseDoctors s)
         {
