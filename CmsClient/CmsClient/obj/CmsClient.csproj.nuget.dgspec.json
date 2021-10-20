@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj": {}
+    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj": {
+    "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj",
-        "projectName": "CMSClient",
-        "projectPath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CMSClient.csproj",
+        "projectUniqueName": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj",
+        "projectName": "CmsClient",
+        "projectPath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\CmsClient.csproj",
         "packagesPath": "C:\\Users\\DURGA-1\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\DURGA-1\\source\\repos\\Clinic-Management-System-master\\CmsClient\\CmsClient\\obj\\",
         "projectStyle": "PackageReference",
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
